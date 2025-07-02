@@ -105,22 +105,20 @@ function App() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [showTechnicalSpecs, setShowTechnicalSpecs] = useState(false);
 
+  // External proposal link (Canva)
+  const PROPOSAL_URL = "https://www.canva.com/design/DAGrg8dCBUc/9wso9EKS0P-Hd_KgjvhiUQ/view?utm_content=DAGrg8dCBUc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h174b4dcff1";
+
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 
   const handleViewFullProposal = () => {
-    // Scroll to top and show a comprehensive view
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    
-    // Show an alert with proposal information
-    alert('Full Proposal Access\n\nThis comprehensive proposal includes:\n\n• Detailed technical architecture\n• Complete financial projections\n• Risk assessment matrices\n• Implementation timelines\n• Team structure and hiring plan\n• Go-to-market strategy\n\nFor the complete 50-page proposal document, please contact:\ninfo@fulcrum.io\n\nA PDF version will be sent within 24 hours.');
+    // Open external proposal in a new tab
+    window.open(PROPOSAL_URL, '_blank', 'noopener,noreferrer');
   };
 
   const handleTechnicalSpecs = () => {
     setShowTechnicalSpecs(!showTechnicalSpecs);
-    
-    // Scroll to technical section if opening
     if (!showTechnicalSpecs) {
       const technicalSection = document.getElementById('technical');
       if (technicalSection) {
@@ -130,7 +128,6 @@ function App() {
   };
 
   const downloadProposal = () => {
-    // Simulate PDF download
     alert('Proposal Download\n\nGenerating comprehensive PDF proposal...\n\nThe document will include:\n• Executive summary\n• Technical specifications\n• Financial projections\n• Implementation roadmap\n• Team and resources\n• Appendices\n\nDownload will begin shortly.\n\nNote: This is a demo - in production, this would trigger an actual PDF download.');
   };
 
@@ -254,10 +251,10 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Layers className="w-6 h-6 text-white" />
+              <div className="flex items-center space-x-2">
+                <img src="/Fulcrum logo only.png" alt="Fulcrum Logo" className="h-10 w-auto" />
+                <h1 className="text-2xl font-bold text-white">Fulcrum</h1>
               </div>
-              <h1 className="text-2xl font-bold text-white">Fulcrum</h1>
             </div>
             <div className="flex items-center space-x-6">
               <nav className="hidden md:flex space-x-6">
@@ -291,7 +288,7 @@ function App() {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
-              onClick={handleTechnicalSpecs}
+              onClick={handleTechnicalSpecs}  
               className="border border-gray-600 text-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center group"
             >
               <Settings className="mr-2 w-5 h-5" />
@@ -369,6 +366,7 @@ function App() {
           </div>
         </section>
       )}
+
 
       {/* Executive Summary */}
       <section id="overview" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
@@ -973,18 +971,15 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-700">
-        <div className="max-w-7xl mx-auto">
+      <footer className="bg-gray-900 border-t border-gray-700 py-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Layers className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">Fulcrum</span>
+            <div className="flex items-center space-x-2">
+              <img src="/Fulcrum logo only.png" alt="Fulcrum Logo" className="h-10 w-auto" />
+              <h1 className="text-2xl font-bold text-white">Fulcrum</h1>
             </div>
-            <div className="text-sm text-gray-400">
-              © 2024 Fulcrum. All rights reserved. | Proposal v1.0
+            <div className="text-sm text-gray-400 mt-4 md:mt-0">
+              © 2025 Fulcrum. All rights reserved. | Proposal v1.0
             </div>
           </div>
         </div>
